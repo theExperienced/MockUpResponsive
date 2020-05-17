@@ -41,7 +41,10 @@ var paths = {
 gulp.task('sass', function() {
     return gulp.src(paths.src.scss)
     .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError)) 
-    .pipe(autoprefixer())
+    .pipe(autoprefixer({ 
+        // browsers: ['last 2 versions'],
+        // cascade: false
+    })) 
     .pipe(gulp.dest(paths.dist.css))
     .pipe(browserSync.stream());
 });
@@ -83,7 +86,7 @@ gulp.task('img', function(){
 
 
 // copy vendors to dist
-gulp.task('vendors', function(){
+gulp.task('vendors', function() {
     return gulp.src(paths.src.vendors)
     .pipe(gulp.dest(paths.dist.vendors))
 });
@@ -99,17 +102,20 @@ gulp.task('clean', function () {
 // Prepare all assets for production
 gulp.task('build', gulp.series('sass', 'css', 'js', 'img'));
 
+gulp.task('totalCSS', gulp.series('sass', 'css'));
+
+
 
 // Watch (SASS, CSS, JS, and HTML) reload browser on change
-gulp.task('watch', function() {
+gulp.task('default', function() {
     browserSync.init({
         server: {
             baseDir: paths.root.www
         } 
     })
 
-    gulp.watch(paths.src.scss, gulp.series('sass'));
-    gulp.watch(paths.src.css, gulp.series('css'));
-    gulp.watch(paths.src.js, gulp.series('js'));
+    gulp.watch(paths.src.scss, gulp.task('totalCSS')).on('change', browserSync.reload);
+    // gulp.watch(paths.src.css, ['css'])//.on('change', browserSync.reload);
+    gulp.watch(paths.src.js);
     gulp.watch(paths.src.html).on('change', browserSync.reload);
 });
