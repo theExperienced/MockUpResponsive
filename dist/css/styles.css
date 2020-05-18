@@ -105,6 +105,18 @@ ul {
   }
 }
 
+@media only screen and (min-width: 75em) {
+  .header__container {
+    width: 85%;
+  }
+}
+
+@media only screen and (min-width: 87.5em) {
+  .header__container {
+    width: 71%;
+  }
+}
+
 .header__logo {
   height: 100%;
   -webkit-box-ordinal-group: 2;
@@ -373,18 +385,33 @@ ul {
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url("https://ichef.bbci.co.uk/images/ic/960x540/p01bqrjq.jpg");
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url("https://ichef.bbci.co.uk/images/ic/960x540/p01bqrjq.jpg");
   background-size: cover;
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .fold__container {
   display: grid;
-  padding: 10rem;
+  padding: 17rem 8rem;
   grid-row-gap: 4.5rem;
   color: white;
 }
 
+@media only screen and (min-width: 56.25em) {
+  .fold__container {
+    padding: 15.5rem 10rem;
+  }
+}
+
 .fold__heading {
-  font-size: 3.5rem;
+  font-size: 2.65rem;
   text-align: center;
+}
+
+@media only screen and (min-width: 56.25em) {
+  .fold__heading {
+    font-size: 3.5rem;
+  }
 }
 
 .fold__sub-heading {
@@ -395,12 +422,18 @@ ul {
 
 .fold__cta {
   display: grid;
-  grid-template-columns: repeat(2, minmax(-webkit-min-content, 1fr));
-  grid-template-columns: repeat(2, minmax(min-content, 1fr));
-  grid-auto-flow: column;
   grid-column-gap: 1.7rem;
-  width: 70%;
+  grid-row-gap: 1.3rem;
   margin: 0 auto;
+}
+
+@media only screen and (min-width: 56.25em) {
+  .fold__cta {
+    grid-template-columns: repeat(2, minmax(-webkit-min-content, 1fr));
+    grid-template-columns: repeat(2, minmax(min-content, 1fr));
+    width: 75%;
+    grid-row-gap: 0;
+  }
 }
 
 .fold__cta-button {
@@ -447,8 +480,7 @@ ul {
 .trophies__container {
   display: grid;
   grid-template-rows: repeat(4, 1fr);
-  grid-auto-flow: column;
-  justify-items: center;
+  justify-items: stretch;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
@@ -460,7 +492,7 @@ ul {
   .trophies__container {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: none;
-    grid-auto-flow: column;
+    justify-items: center;
   }
 }
 
@@ -468,13 +500,28 @@ ul {
   display: grid;
   grid-row-gap: 0.4rem;
   justify-items: center;
+  justify-self: center;
   -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 5rem 2.5rem;
+  padding: 8.5rem 2.5rem;
   text-align: center;
-  width: 65%;
+  width: 75%;
+}
+
+@media only screen and (min-width: 37.5em) {
+  .trophies__article {
+    padding: 0;
+    justify-self: stretch;
+    width: auto;
+  }
+}
+
+@media only screen and (min-width: 56.25em) {
+  .trophies__article {
+    padding: 1rem 1rem;
+  }
 }
 
 .trophies__article:not(:last-child) {
@@ -486,12 +533,6 @@ ul {
     border-right: 1px solid rgba(0, 0, 0, 0.2);
     width: auto;
     border-bottom: 0;
-  }
-}
-
-@media only screen and (min-width: 56.25em) {
-  .trophies__article {
-    padding: 1rem 1rem;
   }
 }
 
@@ -513,12 +554,11 @@ ul {
 }
 
 .trophies__img {
-  max-width: 100%;
-  max-height: 50%;
+  display: block;
+  max-width: 15rem;
 }
 
 .trophies__img--4 {
-  display: block;
   padding: 0 3rem 1.1rem 3rem;
 }
 
@@ -635,8 +675,8 @@ ul {
 }
 
 .endorsements {
-  background-color: rgba(0, 0, 0, 0.03);
-  box-shadow: 0 0 4rem rgba(0, 0, 0, 0.06);
+  background-color: rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 4rem rgba(0, 0, 0, 0.08);
 }
 
 .endorsements__container {
@@ -724,7 +764,8 @@ ul {
           align-content: center;
   text-align: center;
   grid-gap: 1rem;
-  background: silver;
+  color: rgba(0, 0, 0, 0.55);
+  background: #fcfcfc;
   grid-row: 1 / 2;
 }
 
@@ -741,7 +782,7 @@ ul {
   left: 50%;
   border-left: 1.5rem solid transparent;
   border-right: 1.5rem solid transparent;
-  border-top: 1.2rem solid silver;
+  border-top: 1.2rem solid #fcfcfc;
   -webkit-transform: translateX(-50%) translateY(100%);
       -ms-transform: translateX(-50%) translateY(100%);
           transform: translateX(-50%) translateY(100%);
@@ -751,7 +792,7 @@ ul {
   .endorsements__testimonial::after {
     border-top: 1.5rem solid transparent;
     border-bottom: 1.5rem solid transparent;
-    border-right: 1.2rem solid silver;
+    border-right: 1.2rem solid #fcfcfc;
     left: 0;
     bottom: auto;
     top: 50%;
@@ -765,7 +806,7 @@ ul {
   .endorsements__testimonial::after {
     border-left: 1.5rem solid transparent;
     border-right: 1.5rem solid transparent;
-    border-bottom: 1.2rem solid silver;
+    border-bottom: 1.2rem solid #fcfcfc;
     top: 0;
     left: 50%;
     -webkit-transform: translateX(-50%) translateY(calc(-100% + 1px));
@@ -801,7 +842,7 @@ ul {
 }
 
 .endorsements__testee {
-  color: #6c439d;
+  color: #bda5d9;
   font-size: 1.6rem;
 }
 
@@ -928,8 +969,9 @@ ul {
 }
 
 .get-started {
-  background-image: -webkit-linear-gradient(285deg, rgba(141, 101, 189, 0.45) 20%, rgba(194, 145, 89, 0.65)), url("https://www.edgystl.com/wp-content/uploads/2017/04/DSC2039.jpg");
-  background-image: linear-gradient(165deg, rgba(141, 101, 189, 0.45) 20%, rgba(194, 145, 89, 0.65)), url("https://www.edgystl.com/wp-content/uploads/2017/04/DSC2039.jpg");
+  position: relative;
+  background-image: -webkit-linear-gradient(285deg, rgba(141, 101, 189, 0.39) 20%, rgba(194, 145, 89, 0.2));
+  background-image: linear-gradient(165deg, rgba(141, 101, 189, 0.39) 20%, rgba(194, 145, 89, 0.2));
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -942,6 +984,18 @@ ul {
       -ms-flex-pack: center;
           justify-content: center;
   grid-gap: 2.5rem;
+}
+
+.get-started__bg {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-position: top;
+  z-index: -1;
+  opacity: .1;
 }
 
 .get-started__heading {
